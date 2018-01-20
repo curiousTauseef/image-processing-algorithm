@@ -9,7 +9,7 @@ $ clean # This command will compile all object files.
 $ clean PACKAGE=image-interpolation # This command will clean the object files of PACKAGE 'image-interpolation' in `src` folder.
 ```
 
-#example
+# example
 
 packages:
 
