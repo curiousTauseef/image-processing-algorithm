@@ -29,7 +29,7 @@ class histogram {
 
 ## example
 
-+ Process a RGB image.
++ Process a grayscale image.
 
 ```c++
 int main()
