@@ -16,3 +16,7 @@ packages:
 1. [image-interpolation](https://github.com/techping/image-processing-algorithum/tree/master/src/image-interpolation/)
 2. [grayscale-transformer](https://github.com/techping/image-processing-algorithum/tree/master/src/grayscale-transformer/)
 3. [histogram](https://github.com/techping/image-processing-algorithum/tree/master/src/histogram/)
+
+# reference
+
++  Rafael C. Gonzalez. *Digital Image Processing*. (3rd ed.)
