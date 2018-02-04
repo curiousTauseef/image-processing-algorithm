@@ -17,6 +17,7 @@ packages:
 2. [grayscale-transformer](https://github.com/techping/image-processing-algorithum/tree/master/src/grayscale-transformer/)
 3. [histogram](https://github.com/techping/image-processing-algorithum/tree/master/src/histogram/)
 4. [spatial-filter](https://github.com/techping/image-processing-algorithum/tree/master/src/spatial-filter/)
+5. [perspective-transformer](https://github.com/techping/image-processing-algorithum/tree/master/src/perspective-transformer/)
 
 # reference
 
