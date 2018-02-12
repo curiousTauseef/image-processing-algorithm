@@ -5,11 +5,15 @@ OpenCV based Image Processing Algorithm.
 
 ## class
 
++ Depend on ```Eigen``` library.
+
 ```c++
 template <typename T>
 class perspective_transformer {
 	public:
+		perspective_transformer(void);
 		perspective_transformer(cv::Mat& matrix);
+		void calc_matrix(cv::Point2d point1[4], cv::Point2d point2[4]);
 		void transform(const cv::Mat& original_image, cv::Mat& output_image);
 	private:
 		/*
@@ -25,7 +29,10 @@ class perspective_transformer {
 		 * (x, y) is the new coordinate.
 		 */
 		cv::Mat perspective_matrix;
+		Eigen::Matrix3d square_to_quadrilateral(cv::Point2d point[4]);
+		Eigen::Matrix3d quadrilateral_to_square(cv::Point2d point[4]);
 };
+
 ```
 
 ## example
@@ -114,3 +121,32 @@ int main()
 ```
 
 + perspective-transformation
+
+```c++
+int main()
+{
+	cv::Mat img = cv::imread("../../img/lenna.jpg"), new_img;
+	if (img.empty())
+		return -1;
+	perspective_transformer<cv::Vec3b> pt;
+	cv::Point2d point[2][4];
+	point[0][0] = cv::Point2d(0.0, 0.0);
+	point[0][1] = cv::Point2d(img.cols - 1, 0.0);
+	point[0][2] = cv::Point2d(0.0, img.rows - 1);
+	point[0][3] = cv::Point2d(img.cols - 1, img.rows - 1);
+	point[1][0] = cv::Point2d(img.cols / 3, 0);
+	point[1][1] = cv::Point2d(img.cols / 3 * 2, 0);
+	point[1][2] = cv::Point2d(0.0, img.rows - 1);
+	point[1][3] = cv::Point2d(img.cols - 1, img.rows - 1);
+	pt.calc_matrix(point[0], point[1]);
+	pt.transform(img, new_img);
+	cv::imshow("original", img);
+	cv::imshow("new", new_img);
+	cv::waitKey(0);
+	return 0;
+}
+```
+
+## reference
+
++ [http://blog.csdn.net/xiaowei_cqu/article/details/26471527](http://blog.csdn.net/xiaowei_cqu/article/details/26471527)
